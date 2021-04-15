@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TvReg">
+        <item name="android:hyphenationFrequency">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gray6</item>
+        <item name="android:fontFamily">@font/rubik_reg</item>
+    </style>
+
+    <style name="TvReg.Xxs" parent="TvReg">
+        <item name="android:textSize">@dimen/size_xxs</item>
+    </style>
+
+    <style name="TvReg.Xs" parent="TvReg">
+        <item name="android:textSize">@dimen/size_xs</item>
+    </style>
+
+    <style name="TvReg.S" parent="TvReg">
+        <item name="android:textSize">@dimen/size_s</item>
+    </style>
+
+    <style name="TvReg.M" parent="TvReg">
+        <item name="android:textSize">@dimen/size_m</item>
+    </style>
+
+    <style name="TvReg.L" parent="TvReg">
+        <item name="android:textSize">@dimen/size_l</item>
+    </style>
+
+    <style name="TvReg.Xl" parent="TvReg">
+        <item name="android:textSize">@dimen/size_xl</item>
+    </style>
+
+    <style name="TvReg.Xxl" parent="TvReg">
+        <item name="android:textSize">@dimen/size_xxl</item>
+    </style>
+
+    <style name="TvBold">
+        <item name="android:hyphenationFrequency">none</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/gray6</item>
+        <item name="android:fontFamily">@font/rubik_bold</item>
+    </style>
+
+    <style name="TvBold.Xxs" parent="TvBold">
+        <item name="android:textSize">@dimen/size_xxs</item>
+    </style>
+
+    <style name="TvBold.Xs" parent="TvBold">
+        <item name="android:textSize">@dimen/size_xs</item>
+    </style>
+
+    <style name="TvBold.S" parent="TvBold">
+        <item name="android:textSize">@dimen/size_s</item>
+    </style>
+
+    <style name="TvBold.M" parent="TvBold">
+        <item name="android:textSize">@dimen/size_m</item>
+    </style>
+
+    <style name="TvBold.L" parent="TvBold">
+        <item name="android:textSize">@dimen/size_l</item>
+    </style>
+
+    <style name="TvBold.Xl" parent="TvBold">
+        <item name="android:textSize">@dimen/size_xl</item>
+    </style>
+
+    <style name="TvBold.Xxl" parent="TvBold">
+        <item name="android:textSize">@dimen/size_xxl</item>
+    </style>
+
+    <style name="TvBold.Xxxl" parent="TvBold">
+        <item name="android:textSize">@dimen/size_xxxl</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:ambientShadowAlpha">0.07</item>
+        <item name="android:spotShadowAlpha">0.07</item>
+    </style>
+</resources>

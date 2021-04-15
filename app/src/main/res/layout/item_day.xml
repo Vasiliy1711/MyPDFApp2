@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-2dp"
+            android:background="@color/gray6"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_day"
+                style="@style/TvReg.Xxs"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="1.5"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:text="Ср" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                style="@style/TvReg.Xxs"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:text="3" />
+
+            <TextView
+                android:id="@+id/tv_holiday"
+                style="@style/TvReg.Xxs"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="7"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:text="Св. Льва, Папы Римского" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="7"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lal_for_service1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/gray6"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_service1"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="1dp"
+                        android:background="@color/white"
+                        android:layout_weight="4.5"
+                        android:text="Утреня, часы\nБожественная\nЛитургия, Панихида" />
+
+                    <TextView
+                        android:id="@+id/tv_time1"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="2.5"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="8.00" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lal_for_service2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service2"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4.5"
+                        android:text="Соборование" />
+
+                    <TextView
+                        android:id="@+id/tv_time2"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:text="14.00" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lal_for_service3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_service3"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4.5"
+                        android:text="Всенощное бдение" />
+
+                    <TextView
+                        android:id="@+id/tv_time3"
+                        style="@style/TvReg.Xxs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2.5"
+                        android:text="17.00" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

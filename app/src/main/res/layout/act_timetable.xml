@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TvReg.Xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="ПАТРИАРШЕЕ ПОДВОРЬЕ" />
+
+            <TextView
+                style="@style/TvReg.Xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="ХРАМ СВЯТОГО БЛАГОВЕРНОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО" />
+
+            <TextView
+                style="@style/TvReg.Xs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="ПРИ БЫВШЕМ КОМИССАРОВСКОМ УЧИЛИЩЕ Г. МОСКВЫ" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    style="@style/TvReg.Xs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_weight="5"
+                    android:text="РАСПИСАНИЕ БОГОСЛУЖЕНИЙ НА"
+                    android:textAlignment="viewEnd" />
+
+                <TextView
+                    android:id="@+id/tv_month_year"
+                    style="@style/TvReg.Xs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="СЕНТЯБРЬ 2021"
+                    android:textAlignment="viewStart" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:background="@color/gray6"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/TvReg.Xxs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="1.5"
+                    android:background="@color/white"
+                    android:text="День" />
+
+                <TextView
+                    style="@style/TvReg.Xxs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="2"
+                    android:background="@color/white"
+                    android:text="Число" />
+
+                <TextView
+                    style="@style/TvReg.Xxs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="7"
+                    android:background="@color/white"
+                    android:text="Праздник" />
+
+                <TextView
+                    style="@style/TvReg.Xxs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:layout_weight="4.5"
+                    android:background="@color/white"
+                    android:text="Богослужение" />
+
+                <TextView
+                    style="@style/TvReg.Xxs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:layout_weight="2.5"
+                    android:background="@color/white"
+                    android:text="Время" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev_for_days"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/plus_plus"
+            android:elevation="12dp"
+            app:fabSize="mini" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_delete_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red_light"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/delete"
+            android:elevation="12dp"
+            app:fabSize="mini" />
+
+    </RelativeLayout>
+</layout>
