@@ -25,9 +25,6 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
         mvpView = new ActTimetableListMvpView(getLayoutInflater());
         mvpView.registerPresenter(this);
         setContentView(mvpView.getRootView());
-        ModelTimetable timetable = new ModelTimetable("Апрель", "2021");
-        timetableList.add(timetable);
-        mvpView.setActTimetableList(timetableList);
     }
 
     @Override

@@ -10,16 +10,19 @@ import java.io.Serializable;
 public class ModelDay implements Serializable
 {
     @PrimaryKey(autoGenerate = true)
+
     private int id;
+    private int timetableId;
     private String day;
     private String date;
     private String holiday;
     private String service;
     private String time;
 
-    public ModelDay(int id, String day, String date, String holiday, String service, String time)
+    public ModelDay(int id, int timetableId, String day, String date, String holiday, String service, String time)
     {
         this.id = id;
+        this.timetableId = timetableId;
         this.day = day;
         this.date = date;
         this.holiday = holiday;
@@ -28,8 +31,9 @@ public class ModelDay implements Serializable
     }
 
     @Ignore
-    public ModelDay(String day, String date, String holiday, String service, String time)
+    public ModelDay( String day, String date, String holiday, String service, String time)
     {
+
         this.day = day;
         this.date = date;
         this.holiday = holiday;
@@ -37,9 +41,25 @@ public class ModelDay implements Serializable
         this.time = time;
     }
 
+
     public int getId()
     {
         return id;
+    }
+
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+
+    public int getTimetableId()
+    {
+        return timetableId;
+    }
+
+    public void setTimetableId(int timetableId)
+    {
+        this.timetableId = timetableId;
     }
 
     public String getDay()

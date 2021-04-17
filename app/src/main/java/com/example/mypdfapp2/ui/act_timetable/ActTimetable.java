@@ -51,6 +51,12 @@ public class ActTimetable extends ActBase implements ActTimetableMvp.Presenter
     }
 
     @Override
+    public void fabSaveAllClicked()
+    {
+
+    }
+
+    @Override
     public void itemDayClicked(int position)
     {
         Intent intent = new Intent(this, ActSelect.class);

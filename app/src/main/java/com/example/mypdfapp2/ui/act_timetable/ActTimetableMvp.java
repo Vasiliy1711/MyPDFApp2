@@ -16,6 +16,7 @@ public interface ActTimetableMvp
     {
         void fabAddDayClicked();
         void fabDeleteAllClicked();
+        void fabSaveAllClicked();
         void itemDayClicked(int position);
     }
 }

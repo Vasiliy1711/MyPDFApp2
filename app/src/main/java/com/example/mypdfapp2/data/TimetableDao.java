@@ -22,7 +22,7 @@ public interface TimetableDao
     void deleteAllTimetables();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertTimetable(ModelTimetable timetable);
+    int insertTimetable(ModelTimetable timetable);
 
     @Query("SELECT * FROM timetables WHERE id == :timetableId")
     ModelTimetable getTimetableByID(int timetableId);

@@ -22,19 +22,6 @@
             android:elevation="12dp"
             app:fabSize="mini" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_delete_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/red_light"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/delete"
-            android:elevation="12dp"
-            app:fabSize="mini" />
-
 
     </RelativeLayout>
 </layout>

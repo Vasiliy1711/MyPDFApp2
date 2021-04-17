@@ -29,7 +29,7 @@ public class ActTimetableMvpView extends ActBaseMvpView implements ActTimetableM
         adapter = new ModelDayAdapter();
         binding.revForDays.setAdapter(adapter);
         binding.fabAddDay.setOnClickListener(v -> presenter.fabAddDayClicked());
-        binding.fabDeleteDay.setOnClickListener(v -> presenter.fabDeleteAllClicked());
+        binding.fabDeleteAll.setOnClickListener(v -> presenter.fabDeleteAllClicked());
         adapter.setOnItemDayClickListener(position -> presenter.itemDayClicked(position));
     }
 

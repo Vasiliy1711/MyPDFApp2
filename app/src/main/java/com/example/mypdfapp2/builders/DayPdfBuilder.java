@@ -19,6 +19,12 @@ import java.util.List;
 
 public class DayPdfBuilder
 {
+    public static final String DAY = "day";
+    public static final String DATE = "date";
+    public static final String HOLIDAY = "holiday";
+    public static final String SERVICE = "service";
+    public static final String TIME = "time";
+
     public void createPdfFile(List<ModelDay> days, Context context)
     {
         FileOutputStream fos = null;
@@ -68,11 +74,11 @@ public class DayPdfBuilder
         {
             e.printStackTrace();
         }
-        table.addCell(setNewCell("day"));
-        table.addCell(setNewCell("date"));
-        table.addCell(setNewCell("holiday"));
-        table.addCell(setNewCell("service"));
-        table.addCell(setNewCell("time"));
+        table.addCell(setNewCell(DAY));
+        table.addCell(setNewCell(DATE));
+        table.addCell(setNewCell(HOLIDAY));
+        table.addCell(setNewCell(SERVICE));
+        table.addCell(setNewCell(TIME));
         return table;
     }
 

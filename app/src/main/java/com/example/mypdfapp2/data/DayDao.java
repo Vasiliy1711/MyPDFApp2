@@ -31,4 +31,7 @@ public interface DayDao
 
     @Update
     void update(ModelDay day);
+
+    @Query("SELECT * FROM days WHERE timetableId == :timetableId")
+    List<ModelDay> getAllByTimetableId(int timetableId);
 }

@@ -6,29 +6,31 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.mypdfapp2.models.ModelDay;
 import com.example.mypdfapp2.models.ModelTimetable;
 
-@Database(entities = {ModelTimetable.class}, version = 2, exportSchema = false)
-public abstract class TimetableDatabase extends RoomDatabase
+@Database(entities = {ModelDay.class, ModelTimetable.class}, version = 4, exportSchema = false)
+public abstract class AppDatabase extends RoomDatabase
 {
-    private static final String DB_NAME = "timetables.db";
-    private static TimetableDatabase db;
+    private static final String DB_NAME = "days_db";
+    private static AppDatabase database;
     private static final Object LOCK = new Object();
 
-    public static TimetableDatabase getInstance(Context context)
+    public static AppDatabase getInstance(Context context)
     {
         synchronized (LOCK)
         {
-            if (db == null)
+            if (database == null)
             {
-                db = Room.databaseBuilder(context, TimetableDatabase.class, DB_NAME)
+                database = Room.databaseBuilder(context, AppDatabase.class, DB_NAME)
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
                         .build();
             }
         }
-        return db;
+        return database;
     }
 
+    public abstract DayDao dayDao();
     public abstract TimetableDao timetableDao();
 }
