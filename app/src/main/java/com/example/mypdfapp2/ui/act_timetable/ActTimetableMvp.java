@@ -10,6 +10,8 @@ public interface ActTimetableMvp
     interface MvpView extends ActBaseMvp<Presenter>
     {
         void setDays(List<ModelDay> days);
+        void setMonth(String month);
+        void setYear(String year);
     }
 
     interface Presenter

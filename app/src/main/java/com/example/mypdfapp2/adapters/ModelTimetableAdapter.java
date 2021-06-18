@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mypdfapp2.R;
+import com.example.mypdfapp2.converters.DateConverter;
 import com.example.mypdfapp2.databinding.ItemTimetableNameBinding;
 import com.example.mypdfapp2.models.ModelTimetable;
 
@@ -56,10 +57,10 @@ public class ModelTimetableAdapter extends RecyclerView.Adapter<ModelTimetableAd
     @Override
     public int getItemCount()
     {
-        if (timetableList == null)
-        {
-            return 0;
-        }
+//        if (timetableList == null)
+//        {
+//            return 0;
+//        }
         return timetableList.size();
 
     }
@@ -74,6 +75,11 @@ public class ModelTimetableAdapter extends RecyclerView.Adapter<ModelTimetableAd
     {
         ModelTimetable timetable = timetableList.get(position);
         return timetable;
+    }
+
+    public void setTimetableByPosition(ModelTimetable timetable, int position)
+    {
+        timetableList.set(position,timetable);
     }
 
     class ModelTimetableViewHolder extends RecyclerView.ViewHolder
@@ -97,8 +103,8 @@ public class ModelTimetableAdapter extends RecyclerView.Adapter<ModelTimetableAd
 
         private void bindTimetable(ModelTimetable timetable)
         {
-            this.month.setText(timetable.getMonth());
-            this.year.setText(timetable.getYear());
+            this.month.setText(DateConverter.monthToString(timetable.getMonth()));
+            this.year.setText(DateConverter.yearToString(timetable.getYear()));
         }
     }
 }

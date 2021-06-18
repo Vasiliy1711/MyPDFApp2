@@ -30,6 +30,7 @@ public class ActTimetableMvpView extends ActBaseMvpView implements ActTimetableM
         binding.revForDays.setAdapter(adapter);
         binding.fabAddDay.setOnClickListener(v -> presenter.fabAddDayClicked());
         binding.fabDeleteAll.setOnClickListener(v -> presenter.fabDeleteAllClicked());
+        binding.fabSaveAll.setOnClickListener(v -> presenter.fabSaveAllClicked());
         adapter.setOnItemDayClickListener(position -> presenter.itemDayClicked(position));
     }
 
@@ -49,5 +50,17 @@ public class ActTimetableMvpView extends ActBaseMvpView implements ActTimetableM
     public void setDays(List<ModelDay> days)
     {
         adapter.setDays(days);
+    }
+
+    @Override
+    public void setMonth(String month)
+    {
+        binding.tvMonth.setText(month);
+    }
+
+    @Override
+    public void setYear(String year)
+    {
+        binding.tvYear.setText(year);
     }
 }

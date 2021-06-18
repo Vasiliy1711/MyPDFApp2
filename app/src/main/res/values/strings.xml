@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MyPDFApp2</string>
+    <string name="day">День</string>
+    <string name="date">Число</string>
+    <string name="holiday">Праздник</string>
+    <string name="service">Богослужение</string>
+    <string name="time">Время</string>
+    <string name="first_row">ПАТРИАРШЕЕ ПОДВОРЬЕ</string>
+    <string name="second_row">ХРАМ СВЯТОГО БЛАГОВЕРНОГО КНЯЗЯ АЛЕКСАНДРА НЕВСКОГО</string>
+    <string name="third_row">ПРИ БЫВШЕМ КОМИССАРОВСКОМ УЧИЛИЩЕ Г. МОСКВЫ</string>
+    <string name="fourth_row">РАСПИСАНИЕ БОГОСЛУЖЕНИЙ НА </string>
 </resources>

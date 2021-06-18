@@ -1,64 +1,68 @@
 package com.example.mypdfapp2.models;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Entity(tableName = "timetables")
 public class ModelTimetable implements Serializable
 {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private String month;
-    private String year;
+    private long id;
+    private int month = 0;
+    private int year = 0;
     @Ignore
     private List<ModelDay> timetable;
 
-    public ModelTimetable(int id, String month, String year, List<ModelDay> timetable)
+    public ModelTimetable(long id, int month, int year)
     {
         this.id = id;
         this.month = month;
         this.year = year;
-        this.timetable = timetable;
+
     }
 
     @Ignore
-    public ModelTimetable(String month, String year, List<ModelDay> timetable)
+    public ModelTimetable(int month, int year)
     {
         this.month = month;
         this.year = year;
-        this.timetable = timetable;
+
     }
 
-    public int getId()
+    public long getId()
     {
         return id;
     }
 
-    public void setId(int timetableId)
+    public void setId(long id)
     {
-        this.id = timetableId;
+        this.id = id;
     }
 
-    public String getMonth()
+    public int getMonth()
     {
         return month;
     }
 
-    public void setMonth(String timetableMonth)
+    public void setMonth(int timetableMonth)
     {
         this.month = timetableMonth;
     }
 
-    public String getYear()
+    public int getYear()
     {
         return year;
     }
 
-    public void setYear(String timetableYear)
+    public void setYear(int timetableYear)
     {
         this.year = timetableYear;
     }
@@ -71,5 +75,36 @@ public class ModelTimetable implements Serializable
     public void setTimetable(List<ModelDay> timetable)
     {
         this.timetable = timetable;
+    }
+
+
+    public boolean compareDates(ModelTimetable newTimetable, ModelTimetable timetable)
+    {
+        boolean isEarlier;
+
+        if (timetable.getYear() < newTimetable.getYear())
+        {
+            isEarlier = true;
+            Log.e("TAG", "compareDates: 1 - " + timetable.getYear() + newTimetable.getYear());
+        }
+        else if (timetable.getYear() == newTimetable.getYear() && timetable.getMonth() < newTimetable.getMonth())
+        {
+            isEarlier = true;
+            Log.e("TAG", "compareDates: 1 - " + timetable.getYear() + timetable.getMonth() + newTimetable.getMonth());
+        }
+        else if (timetable.getYear() == newTimetable.getYear() && timetable.getMonth() == newTimetable.getMonth())
+        {
+            isEarlier = false;
+            Log.e("TAG", "compareDates: 2 - " + timetable.getYear() + newTimetable.getMonth());
+        }
+
+        else
+        {
+            isEarlier = false;
+            Log.e("TAG", "compareDates: 3 - ");
+        }
+
+        return isEarlier;
+
     }
 }

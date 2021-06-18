@@ -7,7 +7,7 @@
         app:cardCornerRadius="4dp"
         android:elevation="12dp"
         android:backgroundTint="@color/yellow_type_event"
-        android:layout_margin="24sp">
+        android:layout_margin="18dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/blue_light"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:text="Расписание"/>
             <TextView
                 android:id="@+id/tv_month"
@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:text="Апрель"
                 android:textColor="@color/blue_light"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textAlignment="center"/>
             <TextView
                 android:id="@+id/tv_year"
@@ -37,7 +37,7 @@
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/blue_light"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:text="2021 год"/>
         </LinearLayout>
 

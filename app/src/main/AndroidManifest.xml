@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyPDFApp2">
         <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".ui.act_confirm.ActConfirm"/>
         <activity android:name=".ui.act_timetable_list.ActTimetableList">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.act_timetable_add.ActTimetableAdd"/>
 
         <activity android:name=".ui.act_timetable.ActTimetable">
 
@@ -30,6 +33,16 @@
             android:theme="@style/Theme.Transparent"/>
         <activity android:name=".ui.act_select_act.ActSelect"
             android:theme="@style/Theme.Transparent"/>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.mypdfapp2.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths">
+            </meta-data>
+        </provider>
     </application>
 
 </manifest>

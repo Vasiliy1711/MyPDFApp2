@@ -17,14 +17,14 @@ public interface DayDao
     @Query("SELECT * FROM days")
     List<ModelDay> getAllDays();
 
-    @Query("DELETE FROM days")
-    void deleteAllDAys();
+    @Query("DELETE FROM days WHERE timetableId == :timetableId")
+    void deleteAllDAysFromTimetable(long timetableId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertDay(ModelDay day);
 
     @Query("SELECT * FROM days WHERE id == :dayId")
-    ModelDay getDayById(int dayId);
+    ModelDay getDayById(long dayId);
 
     @Delete
     void deleteDay(ModelDay day);
@@ -33,5 +33,5 @@ public interface DayDao
     void update(ModelDay day);
 
     @Query("SELECT * FROM days WHERE timetableId == :timetableId")
-    List<ModelDay> getAllByTimetableId(int timetableId);
+    List<ModelDay> getAllByTimetableId(long timetableId);
 }

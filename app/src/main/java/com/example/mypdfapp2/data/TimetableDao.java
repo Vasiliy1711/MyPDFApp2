@@ -22,10 +22,13 @@ public interface TimetableDao
     void deleteAllTimetables();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    int insertTimetable(ModelTimetable timetable);
+    long insertTimetable(ModelTimetable timetable);
 
     @Query("SELECT * FROM timetables WHERE id == :timetableId")
-    ModelTimetable getTimetableByID(int timetableId);
+    ModelTimetable getTimetableByID(long timetableId);
+
+    @Query("SELECT * FROM timetables WHERE month == :month AND year == :year")
+    List<ModelTimetable> getTimetablesByMonthAndYear(int month, int year);
 
     @Delete
     void deleteTimetable(ModelTimetable timetable);

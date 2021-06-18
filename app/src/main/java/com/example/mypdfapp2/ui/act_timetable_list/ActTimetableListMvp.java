@@ -16,6 +16,6 @@ public interface ActTimetableListMvp
     {
         void itemTimetableNameClicked(int position);
         void fabAddTimetableClicked();
-        void fabDeleteListClicked();
+
     }
 }

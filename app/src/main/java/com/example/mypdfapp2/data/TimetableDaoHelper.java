@@ -9,11 +9,11 @@ import java.util.List;
 
 public class TimetableDaoHelper
 {
-    public static int saveTimetable(Context context, ModelTimetable timetable)
+    public static long saveTimetable(Context context, ModelTimetable timetable)
     {
         TimetableDao timetableDao = AppDatabase.getInstance(context).timetableDao();
         DayDao dayDao = AppDatabase.getInstance(context).dayDao();
-        int id = timetableDao.insertTimetable(timetable);
+        long id = timetableDao.insertTimetable(timetable);
         for (ModelDay modelDay : timetable.getTimetable())
         {
             modelDay.setTimetableId(id);
@@ -22,7 +22,7 @@ public class TimetableDaoHelper
         return id;
     }
 
-    public static ModelTimetable getTimetableById(Context context, int id)
+    public static ModelTimetable getTimetableById(Context context, long id)
     {
         TimetableDao timetableDao = AppDatabase.getInstance(context).timetableDao();
         DayDao dayDao = AppDatabase.getInstance(context).dayDao();

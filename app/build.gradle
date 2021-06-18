@@ -8,11 +8,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.mypdfapp2"
-        minSdkVersion 23
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

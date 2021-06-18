@@ -2,6 +2,7 @@ package com.example.mypdfapp2.ui.act_timetable_day_add;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -12,8 +13,8 @@ import com.example.mypdfapp2.models.ModelDay;
 public class ActTimetableDayAdd extends ActBase implements ActTimetableDayAddMvp.Presenter
 {
     private ActTimetableDayAddMvp.MvpView mvpView;
-    ModelDay editingDay;
-    boolean isEditMode = false;
+    private ModelDay editingDay;
+    private long timetableId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -23,11 +24,15 @@ public class ActTimetableDayAdd extends ActBase implements ActTimetableDayAddMvp
         mvpView.registerPresenter(this);
         setContentView(mvpView.getRootView());
         Intent intent = getIntent();
-        if (intent.hasExtra("editing_day"))
+        if (intent.hasExtra("timetableId"))
         {
-            editingDay = (ModelDay) intent.getSerializableExtra("editing_day");
+            timetableId = intent.getLongExtra("timetableId", 0);
+        }
+        if (intent.hasExtra("editing_dayId"))
+        {
+            long editing_dayId = intent.getLongExtra("editing_dayId", 0);
+            editingDay = database.dayDao().getDayById(editing_dayId);
             mvpView.setEditingDay(editingDay);
-            isEditMode = true;
         }
     }
 
@@ -37,17 +42,22 @@ public class ActTimetableDayAdd extends ActBase implements ActTimetableDayAddMvp
 
         Intent intent = new Intent(this, ActTimetable.class);
         ModelDay day = mvpView.getNewDay();
-        intent.putExtra("new_day", day);
-        startActivity(intent);
+        day.setTimetableId(timetableId);
+        database.dayDao().insertDay(day);
+        intent.putExtra("timetableId", timetableId);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     @Override
     public void btnEditDayClicked()
     {
         database.dayDao().update(getEditingDay());
-        Intent intent = new Intent(this, ActTimetable.class);
-        intent.putExtra("new_day", editingDay);
-        startActivity(intent);
+        Intent intent = new Intent();
+        timetableId = editingDay.getTimetableId();
+        intent.putExtra("timetableId", timetableId);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     private ModelDay getEditingDay()

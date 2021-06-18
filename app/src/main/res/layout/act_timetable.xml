@@ -37,28 +37,36 @@
                 android:text="ПРИ БЫВШЕМ КОМИССАРОВСКОМ УЧИЛИЩЕ Г. МОСКВЫ" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="3dp"
                 android:orientation="horizontal">
 
 
                 <TextView
                     style="@style/TvReg.Xs"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
-                    android:layout_weight="5"
-                    android:text="РАСПИСАНИЕ БОГОСЛУЖЕНИЙ НА"
+                    android:paddingEnd="3dp"
+                    android:text="РАСПИСАНИЕ БОГОСЛУЖЕНИЙ НA"
                     android:textAlignment="viewEnd" />
 
                 <TextView
-                    android:id="@+id/tv_month_year"
+                    android:id="@+id/tv_month"
                     style="@style/TvReg.Xs"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="СЕНТЯБРЬ 2021"
+                    android:paddingEnd="3dp"
+                    android:text="СЕНТЯБРЬ"
+                    android:textAlignment="viewStart" />
+                <TextView
+                    android:id="@+id/tv_year"
+                    style="@style/TvReg.Xs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2021"
                     android:textAlignment="viewStart" />
 
             </LinearLayout>

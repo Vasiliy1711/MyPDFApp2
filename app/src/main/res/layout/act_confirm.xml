@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray8_trans_50">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="24dp">
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/red_light"
+                android:text="Вы действительно хотите удалить этот день"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/btn_delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:padding="10dp"
+                android:text="Удалить"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:background="@color/red_light"/>
+            <TextView
+                android:id="@+id/btn_undo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:padding="10dp"
+                android:text="Отменить"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textAlignment="center"
+                android:background="@color/green_light"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

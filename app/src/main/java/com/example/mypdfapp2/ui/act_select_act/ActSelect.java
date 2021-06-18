@@ -9,15 +9,17 @@ import androidx.annotation.Nullable;
 
 import com.example.mypdfapp2.dialogs.DialogConfirm;
 import com.example.mypdfapp2.ui.act_base.ActBase;
+import com.example.mypdfapp2.ui.act_confirm.ActConfirm;
 import com.example.mypdfapp2.ui.act_timetable.ActTimetable;
 import com.example.mypdfapp2.ui.act_timetable_day_add.ActTimetableDayAdd;
 import com.example.mypdfapp2.models.ModelDay;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-public class ActSelect extends ActBase implements ActSelectMvp.Presenter, DialogInterface.OnClickListener
+public class ActSelect extends ActBase implements ActSelectMvp.Presenter
 {
     private ActSelectMvp.MvpView mvpView;
-    private ModelDay day;
+    private long dayId;
+    private final int REQUEST_CODE_DELETE = 6;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -27,9 +29,9 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter, Dialog
         mvpView.registerPresenter(this);
         setContentView(mvpView.getRootView());
         Intent intent = getIntent();
-        if (intent.hasExtra("selected_day"))
+        if (intent.hasExtra("selected_dayId"))
         {
-            day = (ModelDay) intent.getSerializableExtra("selected_day");
+            dayId = intent.getLongExtra("selected_dayId", 0);
         }
     }
 
@@ -37,32 +39,34 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter, Dialog
     public void btnEditClicked()
     {
         Toast.makeText(this, "Этот день будет изменен!", Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(this, ActTimetableDayAdd.class);
-        intent.putExtra("editing_day", day);
-        startActivity(intent);
+
+        Intent intent = new Intent();
+        boolean isDelete = false;
+        intent.putExtra("isDelete", isDelete);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     @Override
     public void btnDeleteClicked()
     {
         Toast.makeText(this, "Этот день будет удален!", Toast.LENGTH_SHORT).show();
-        BottomSheetDialogFragment dialog = new DialogConfirm();
-        dialog.show(getSupportFragmentManager(), null);
-
-
-    }
-
-    public void deleteDay()
-    {
-        database.dayDao().deleteDay(day);
-        Intent intent = new Intent(this, ActTimetable.class);
-        startActivity(intent);
+        Intent intent = new Intent(this, ActConfirm.class);
+        startActivityForResult(intent, REQUEST_CODE_DELETE);
     }
 
     @Override
-    public void onClick(DialogInterface dialog, int which)
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
     {
-        deleteDay();
-        dialog.dismiss();
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK)
+        {
+            boolean isDelete = data.getBooleanExtra("isDelete", false);
+            if (isDelete)
+            {
+                setResult(RESULT_OK, data);
+                finish();
+            }
+        }
     }
 }

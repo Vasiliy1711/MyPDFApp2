@@ -30,7 +30,6 @@ public class ActTimetableListMvpView extends ActBaseMvpView implements ActTimeta
         adapter = new ModelTimetableAdapter();
         binding.revForTimetableList.setAdapter(adapter);
         binding.fabAddTimetable.setOnClickListener(v -> presenter.fabAddTimetableClicked());
-        binding.fabDeleteList.setOnClickListener(v -> presenter.fabDeleteListClicked());
         adapter.setOnItemTimetableNameClickListener(position -> presenter.itemTimetableNameClicked(position));
     }
 

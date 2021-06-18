@@ -43,6 +43,10 @@ public class DialogConfirm extends BottomSheetDialogFragment
             startActivity(intent);
 
         });
+        binding.btnDelete.setOnClickListener(v ->
+        {
+
+        });
         return binding.getRoot();
     }
 

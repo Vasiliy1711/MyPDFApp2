@@ -9,7 +9,10 @@ import androidx.room.RoomDatabase;
 import com.example.mypdfapp2.models.ModelDay;
 import com.example.mypdfapp2.models.ModelTimetable;
 
-@Database(entities = {ModelDay.class, ModelTimetable.class}, version = 4, exportSchema = false)
+import java.util.ArrayList;
+import java.util.List;
+
+@Database(entities = {ModelDay.class, ModelTimetable.class}, version = 13, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase
 {
     private static final String DB_NAME = "days_db";
@@ -33,4 +36,5 @@ public abstract class AppDatabase extends RoomDatabase
 
     public abstract DayDao dayDao();
     public abstract TimetableDao timetableDao();
+
 }
