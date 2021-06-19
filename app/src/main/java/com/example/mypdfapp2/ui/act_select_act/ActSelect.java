@@ -19,6 +19,8 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter
 {
     private ActSelectMvp.MvpView mvpView;
     private long dayId;
+    private long timetableId;
+    private boolean isDeleteMonth;
     private final int REQUEST_CODE_DELETE = 6;
 
     @Override
@@ -33,13 +35,16 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter
         {
             dayId = intent.getLongExtra("selected_dayId", 0);
         }
+        else if (intent.hasExtra("selected_timetableId"))
+        {
+            timetableId = intent.getLongExtra("selected_timetableId", 0);
+            isDeleteMonth = true;
+        }
     }
 
     @Override
     public void btnEditClicked()
     {
-        Toast.makeText(this, "Этот день будет изменен!", Toast.LENGTH_SHORT).show();
-
         Intent intent = new Intent();
         boolean isDelete = false;
         intent.putExtra("isDelete", isDelete);
@@ -50,8 +55,8 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter
     @Override
     public void btnDeleteClicked()
     {
-        Toast.makeText(this, "Этот день будет удален!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, ActConfirm.class);
+        intent.putExtra("isDeleteMonth", isDeleteMonth);
         startActivityForResult(intent, REQUEST_CODE_DELETE);
     }
 
@@ -65,6 +70,10 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter
             if (isDelete)
             {
                 setResult(RESULT_OK, data);
+                finish();
+            }
+            else
+            {
                 finish();
             }
         }

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.example.mypdfapp2.adapters.ModelTimetableAdapter;
 import com.example.mypdfapp2.models.ModelTimetable;
 import com.example.mypdfapp2.ui.act_base.ActBase;
+import com.example.mypdfapp2.ui.act_select_act.ActSelect;
 import com.example.mypdfapp2.ui.act_timetable.ActTimetable;
 import com.example.mypdfapp2.ui.act_timetable_add.ActTimetableAdd;
 
@@ -20,9 +21,10 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
     private ActTimetableListMvp.MvpView mvpView;
     private List<ModelTimetable> timetableList = new ArrayList<>();
     private ModelTimetableAdapter adapter = new ModelTimetableAdapter();
+    private long timetableId;
     private final int REQUEST_CODE_AT = 1;
     private final int REQUEST_CODE_ATA = 2;
-
+    private final int REQUEST_CODE_AS = 7;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -37,16 +39,11 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
     @Override
     public void itemTimetableNameClicked(int position)
     {
-        ModelTimetable timetable = adapter.getTimetableByPosition(timetableList, position);
-        long timetableId = timetable.getId();
-        sendRequest(timetableId);
-    }
 
-    private void sendRequest(long timetableId)
-    {
-        Intent intent = new Intent(this, ActTimetable.class);
-        intent.putExtra("timetableId", timetableId);
-        startActivityForResult(intent, REQUEST_CODE_AT);
+        ModelTimetable timetable = adapter.getTimetableByPosition(timetableList, position);
+        timetableId = timetable.getId();
+        requestForSelect(timetableId);
+//        sendRequest(timetableId);
     }
 
     @Override
@@ -54,13 +51,6 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
     {
         Intent intent = new Intent(this, ActTimetableAdd.class);
         startActivityForResult(intent, REQUEST_CODE_ATA);
-    }
-
-    private void setTimetableList()
-    {
-//        database.timetableDao().deleteAllTimetables();
-        timetableList = database.timetableDao().getAllTimetables();
-        mvpView.setActTimetableList(timetableList);
     }
 
     @Override
@@ -73,10 +63,7 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
             {
                 case REQUEST_CODE_ATA:
                 {
-                    Log.e("TAG", "onActivityResult: ATL" );
                     long timetableId = data.getLongExtra("timetableId", -1);
-                    Log.e("TAG", "onActivityResult: " + timetableId);
-
                     sendRequest(timetableId);
                     break;
                 }
@@ -85,7 +72,41 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
                     setTimetableList();
                     break;
                 }
+                case REQUEST_CODE_AS:
+                {
+                    boolean isDelete = data.getBooleanExtra("isDelete", false);
+                    if (!isDelete)
+                    {
+                        sendRequest(timetableId);
+                    }
+                    else
+                    {
+                        database.timetableDao().deleteTimetable(database.timetableDao().getTimetableByID(timetableId));
+                        setTimetableList();
+                    }
+                }
             }
         }
+    }
+
+    private void setTimetableList()
+    {
+//        database.timetableDao().deleteAllTimetables();
+        timetableList = database.timetableDao().getAllTimetables();
+        mvpView.setActTimetableList(timetableList);
+    }
+
+    private void sendRequest(long timetableId)
+    {
+        Intent intent = new Intent(this, ActTimetable.class);
+        intent.putExtra("timetableId", timetableId);
+        startActivityForResult(intent, REQUEST_CODE_AT);
+    }
+
+    private void requestForSelect(long timetableId)
+    {
+        Intent intent = new Intent(this, ActSelect.class);
+        intent.putExtra("selected_timetableId", timetableId);
+        startActivityForResult(intent, REQUEST_CODE_AS);
     }
 }

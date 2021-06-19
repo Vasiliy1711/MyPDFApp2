@@ -6,7 +6,8 @@ public interface ActConfirmMvp
 {
     interface MvpView extends ActBaseMvp<Presenter>
     {
-        void setNewText();
+        void setTimetable();
+        void setMonth();
     }
 
     interface Presenter

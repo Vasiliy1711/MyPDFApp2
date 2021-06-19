@@ -41,9 +41,14 @@ public class ActConfirmMvpView extends ActBaseMvpView implements ActConfirmMvp.M
     }
 
     @Override
-    public void setNewText()
+    public void setTimetable()
     {
-        Log.e("TAG", "setNewText: ");
         binding.tvQuestion.setText("Вы действительно хотите удалить это расписание?");
+    }
+
+    @Override
+    public void setMonth()
+    {
+        binding.tvQuestion.setText("Вы действительно хотите удалить этот месяц?");
     }
 }

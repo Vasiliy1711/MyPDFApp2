@@ -19,9 +19,13 @@ public class ActConfirm extends AppCompatActivity implements ActConfirmMvp.Prese
         mvpView.registerPresenter(this);
         setContentView(mvpView.getRootView());
         Intent intent = getIntent();
-        if (intent.getBooleanExtra("isAll", false))
+        if (intent.hasExtra("isDeleteAll"))
         {
-            mvpView.setNewText();
+            mvpView.setTimetable();
+        }
+        else if (intent.hasExtra("isDeleteMonth"))
+        {
+            mvpView.setMonth();
         }
     }
 

@@ -64,8 +64,8 @@ public class ActTimetable extends ActBase implements ActTimetableMvp.Presenter
     public void fabDeleteAllClicked()
     {
         Intent intent = new Intent(this, ActConfirm.class);
-        boolean isAll = true;
-        intent.putExtra("isAll", isAll);
+        boolean isDeleteAll = true;
+        intent.putExtra("isDeleteAll", isDeleteAll);
         startActivityForResult(intent, REQUEST_CODE_DELETE);
     }
 
@@ -83,11 +83,9 @@ public class ActTimetable extends ActBase implements ActTimetableMvp.Presenter
     @Override
     public void itemDayClicked(int position)
     {
-        Log.e("TAG", "itemDayClicked: ");
         Intent intent = new Intent(this, ActSelect.class);
         day = adapter.getDayByPosition(days, position);
         intent.putExtra("selected_dayId", day.getId());
-//        startActivity(intent);
         startActivityForResult(intent, REQUEST_CODE_SELECT);
     }
 
