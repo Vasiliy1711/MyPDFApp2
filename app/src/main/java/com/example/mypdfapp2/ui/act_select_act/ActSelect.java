@@ -56,7 +56,10 @@ public class ActSelect extends ActBase implements ActSelectMvp.Presenter
     public void btnDeleteClicked()
     {
         Intent intent = new Intent(this, ActConfirm.class);
-        intent.putExtra("isDeleteMonth", isDeleteMonth);
+        if (isDeleteMonth)
+        {
+            intent.putExtra("isDeleteMonth", isDeleteMonth);
+        }
         startActivityForResult(intent, REQUEST_CODE_DELETE);
     }
 

@@ -43,7 +43,6 @@ public class ActTimetableList extends ActBase implements ActTimetableListMvp.Pre
         ModelTimetable timetable = adapter.getTimetableByPosition(timetableList, position);
         timetableId = timetable.getId();
         requestForSelect(timetableId);
-//        sendRequest(timetableId);
     }
 
     @Override
